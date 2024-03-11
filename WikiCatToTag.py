@@ -28,10 +28,9 @@ def get_item_ids_from_category(category):
 
     # Extract item id's from the json query response
     for answer in site.ask(query):
-        for title, data in answer.items():
-            item_ids = data['printouts']['Item ID']
-            for item_id in item_ids:
-                category_item_ids.append(item_id)
+        item_ids = answer['printouts']['Item ID']
+        for item_id in item_ids:
+            category_item_ids.append(item_id)
 
     return category_item_ids
 
